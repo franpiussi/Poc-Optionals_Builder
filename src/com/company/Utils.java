@@ -1,7 +1,9 @@
 package com.company;
 
+import java.awt.*;
+import java.util.List;
 import java.util.stream.Collector;
-import static java.util.Comparator.comparingDouble;
+import static java.util.Comparator.comparing;
 import java.util.*;
 
 
@@ -25,12 +27,12 @@ public class Utils {
 
     public static List<Evento> getFirst5perID(List<Evento> Eventos){
         return Eventos.stream()
-                .sort(comparingDouble(e::getId()))
+                .sort(comparing(e::getName()))
                 .limit(5)
                 .collect(Collector.toList());
     }
 
     public static List<Evento> getOrganized(List<Evento> Eventos){
-        return Eventos.sort(comparingDouble(e::getId());
+        return Eventos.sort(comparing(Event::getName());
     }
 }
