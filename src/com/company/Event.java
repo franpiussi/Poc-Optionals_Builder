@@ -1,18 +1,24 @@
 package com.company;
 
-public class Location {
+import java.util.Objects;
+
+public class Event {
 
     private Integer id;
     private String name;
-    private City city;
+    private Location location;
 
-    public Location(Integer id,String name, City city) {
-        this.id = id;
-        this.name = name;
-        this.city = city;
+    public Event() {
+
     }
 
-    public int getId() {
+    public Event(Integer id, String name, Location location) {
+        this.id = id;
+        this.name = name;
+        this.location = location;
+    }
+
+    public Integer getId() {
         return id;
     }
 
@@ -28,20 +34,20 @@ public class Location {
         this.name = name;
     }
 
-    public City getCity() {
-        return city;
+    public Location getLocation() {
+        return location;
     }
 
-    public void setCity(City city) {
-        this.city = city;
+    public void setLocation(Location location) {
+        this.location = location;
     }
 
     @Override
     public String toString() {
-        return "Location{" +
+        return "Event{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
-                ", city=" + city +
+                ", location=" + location +
                 '}';
     }
 }

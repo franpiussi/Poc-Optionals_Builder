@@ -12,16 +12,22 @@ public class Main {
     public static void main(String[] args) {
 
 
-          List<Evento> Eventos = Arrays.asList(
-                new Evento(2,"Evento 2", new Location(1,"Argentina", new City(2,"La Plata"))),
-                new Evento(3,"Evento 3", new Location(1,"Argentina", new City(3,"Mar Chiquita"))),
-                new Evento(1,"Evento 1", new Location(1,"Argentina", new City(1,"Mar del Plata"))),
-                new Evento(4,"Evento 4", new Location(1,"Argentina", new City(4,"Mar de Cobos"))));
+        List<Event> Events = Arrays.asList(
+                new Event(2,"Evento 2", new Location(1,"Argentina", new City(2,"La Plata"))),
+                new Event(3,"Evento 3", new Location(1,"Argentina", new City(3,"Mar Chiquita"))),
+                new Event(1,"Evento 1", new Location(1,"Argentina", new City(1,"Mar del Plata"))),
+                new Event(4,"Evento 4", new Location(1,"Argentina", null )));
 
 
 
-        Evento e = Utils.getEventById(Eventos, 2);
-        //String cityName = Utils.getCityNameFromEvent(Eventos, 4);
+        Event EventById = Utils.getEventById(Events, 2);
+        System.out.println(EventById);
+
+        String cityName = Utils.getCityNameFromEvent(Events, 4);
+        System.out.println(cityName);
+
+        List<Event> First5Events = Utils.getFirst5perID(Events);
+        System.out.println(First5Events);
 
 
         /*City c = new City();
@@ -29,6 +35,6 @@ public class Main {
 
         //isnull(Object);
 
-	    //City city = City.name('dd').id(1).build();
+        //City city = City.name('dd').id(1).build();
     }
 }

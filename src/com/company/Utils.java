@@ -1,38 +1,32 @@
 package com.company;
 
-import java.awt.*;
 import java.util.List;
-import java.util.stream.Collector;
-import static java.util.Comparator.comparing;
+import java.util.Optional;
 import java.util.*;
-
+import java.util.stream.Collectors;
 
 public class Utils {
 
 
-   /*public static String getCityNameFromEvent(List<Evento> lista, Integer id){
-        Optionals.ofnullable(getEventbyId(_lista,_id))
-                .map(::getLocation())
-                .map(::getCity())
-                .map(::getName())
-                .orelse('Sin Ciudad');
-    }*/
+   public static String getCityNameFromEvent(List<Event> lista, Integer id){
+     return Optional.ofNullable(getEventById(lista,id))
+                .map(Event::getLocation)
+                .map(Location::getCity)
+                .map(City::toString)
+                .orElse("Sin Ciudad");
+    }
 
-    public static Evento getEventById(List<Evento> Eventos, Integer id){
+    public static Event getEventById(List<Event> Eventos, Integer id){
         return Eventos.stream()
                 .filter(e -> id.equals(e.getId()))
                 .findFirst()
                 .get();
     }// duda en funcion
 
-    public static List<Evento> getFirst5perID(List<Evento> Eventos){
-        return Eventos.stream()
-                .sort(comparing(e::getName()))
+    public static List<Event> getFirst5perID(List<Event> Events){
+        return Events.stream()
+                .sorted(Comparator.comparing(event-> event.getName()))
                 .limit(5)
-                .collect(Collector.toList());
-    }
-
-    public static List<Evento> getOrganized(List<Evento> Eventos){
-        return Eventos.sort(comparing(Event::getName());
+                .collect(Collectors.toList());
     }
 }
